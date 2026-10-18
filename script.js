@@ -5,6 +5,10 @@ const timerText = document.getElementById("timer");
 const startButton = document.getElementById("start");
 const toggleButton = document.getElementById("toggle");
 const resetButton = document.getElementById("reset");
+const restartButton = document.getElementById("restart");
+const label = document.getElementById("label");
+const nameText = document.getElementById("name");
+const metaText = document.getElementById("meta");
 
 let remainingMs = TOTAL_MS;
 let endTime = 0;
@@ -24,7 +28,19 @@ function tick() {
   if (remainingMs === 0) {
     clearInterval(intervalId);
     intervalId = null;
+    finish();
   }
+}
+
+// Made-up painting details. They are only put on the page when the timer finishes.
+function finish() {
+  nameText.textContent = "Evening Over the Water";
+  metaText.textContent = "Marguerite Bellaire, 1887";
+  label.hidden = false;
+  page.classList.add("finished");
+  toggleButton.hidden = true;
+  resetButton.hidden = true;
+  restartButton.hidden = false;
 }
 
 function run() {
@@ -58,11 +74,19 @@ toggleButton.addEventListener("click", () => {
   }
 });
 
-resetButton.addEventListener("click", () => {
+function backToStart() {
   stop();
   remainingMs = TOTAL_MS;
   showTime();
-  page.classList.remove("running");
+  nameText.textContent = "";
+  metaText.textContent = "";
+  label.hidden = true;
+  page.classList.remove("running", "finished");
   toggleButton.hidden = true;
+  restartButton.hidden = true;
+  resetButton.hidden = false;
   startButton.hidden = false;
-});
+}
+
+resetButton.addEventListener("click", backToStart);
+restartButton.addEventListener("click", backToStart);

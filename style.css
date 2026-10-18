@@ -74,6 +74,26 @@ body {
 /* While the timer is running or paused, the painting is a little less blurred. */
 .running .art::before { filter: blur(10px); }
 
+/* When the timer finishes, the painting is fully sharp. */
+.finished .art::before { filter: none; }
+
+.label {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.label .name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.label .meta {
+  font-size: 15px;
+  margin: 2px 0 0;
+  opacity: 0.85;
+}
+
 @media (min-width: 900px) {
   .frame { --max-h: 62vh; }
   .art { width: min(calc(var(--max-h) * var(--r)), 640px); }

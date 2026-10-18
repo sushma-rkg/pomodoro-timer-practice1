@@ -9,11 +9,16 @@
 <body>
   <main class="view" id="page">
     <div class="frame"><div class="art"></div></div>
+    <div class="label" id="label" hidden>
+      <p class="name" id="name"></p>
+      <p class="meta" id="meta"></p>
+    </div>
     <p class="timer" id="timer">25:00</p>
     <div class="buttons">
       <button class="btn main" type="button" id="start">Start</button>
       <button class="btn main" type="button" id="toggle" hidden>Pause</button>
       <button class="btn" type="button" id="reset">Reset</button>
+      <button class="btn main" type="button" id="restart" hidden>Restart session</button>
     </div>
   </main>
   <script src="script.js"></script>
