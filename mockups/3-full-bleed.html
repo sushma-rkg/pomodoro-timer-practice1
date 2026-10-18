@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup 3 - Full Bleed</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #3f5a52;
+      background: #d9efe6;
+    }
+    .view {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 16px 28px;
+      border-bottom: 6px solid #fff;
+      box-shadow: inset 0 0 0 10px #cfeee0;
+    }
+    .art {
+      position: absolute;
+      inset: -40px;
+      background:
+        radial-gradient(circle at 72% 24%, #fff0c4 0 12%, transparent 13%),
+        linear-gradient(165deg, #f6b7c9 0%, #cdb8f0 45%, #a8e0d0 100%);
+    }
+    .blur-heavy { filter: blur(28px); }
+    .blur-medium { filter: blur(12px); }
+    .loading { background: linear-gradient(100deg, #dff3ea 30%, #f6fffb 50%, #dff3ea 70%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+    .tag {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      z-index: 2;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 460px);
+      padding: 22px 24px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.7);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(50, 90, 80, 0.2);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .timer {
+      font-size: clamp(48px, 13vw, 68px);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      font: inherit;
+      font-size: 16px;
+      padding: 12px 30px;
+      border-radius: 999px;
+      border: 2px solid #7fc9b0;
+      background: #fff;
+      color: #3f5a52;
+    }
+    .btn.main { background: #7fc9b0; color: #fff; }
+    .name { font-size: 20px; font-weight: 600; margin: 0; }
+    .meta { font-size: 15px; margin: 2px 0 0; opacity: 0.9; }
+    .status { margin: 0; font-size: 16px; opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+  <section class="view">
+    <span class="tag">Before starting</span>
+    <div class="art blur-heavy"></div>
+    <div class="panel">
+      <p class="timer">25:00</p>
+      <div class="buttons">
+        <button class="btn main">Start</button>
+        <button class="btn">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view">
+    <span class="tag">Loading artwork...</span>
+    <div class="art loading"></div>
+    <div class="panel">
+      <p class="status">Loading artwork...</p>
+      <p class="timer">25:00</p>
+    </div>
+  </section>
+
+  <section class="view">
+    <span class="tag">Timer running</span>
+    <div class="art blur-medium"></div>
+    <div class="panel">
+      <p class="timer">18:42</p>
+      <div class="buttons">
+        <button class="btn main">Pause</button>
+        <button class="btn">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view">
+    <span class="tag">Timer finished</span>
+    <div class="art"></div>
+    <div class="panel">
+      <p class="timer">00:00</p>
+      <div>
+        <p class="name">Evening Over the Water</p>
+        <p class="meta">Marguerite Bellaire, 1887</p>
+      </div>
+      <div class="buttons">
+        <button class="btn main">Restart session</button>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
